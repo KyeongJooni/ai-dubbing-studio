@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
       const error = await sttResponse.text();
       console.error("STT error:", error);
       return NextResponse.json(
-        { error: "Transcription failed", step: "transcribe" },
+        { error: `Transcription failed (${sttResponse.status}): ${error}`, step: "transcribe" },
         { status: 500 }
       );
     }
@@ -79,7 +79,7 @@ export async function POST(req: NextRequest) {
       const error = await ttsResponse.text();
       console.error("TTS error:", error);
       return NextResponse.json(
-        { error: "Speech synthesis failed", step: "synthesize" },
+        { error: `TTS failed (${ttsResponse.status}): ${error}`, step: "synthesize" },
         { status: 500 }
       );
     }
