@@ -1,5 +1,5 @@
 // 표준 API Route 패턴
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 
 export async function POST(req: NextRequest) {

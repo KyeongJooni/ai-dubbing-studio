@@ -1,8 +1,9 @@
 "use client";
 
-import { useSession, signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { useSession, signIn } from "next-auth/react";
 import { useEffect } from "react";
+import Header from "@/components/header";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -11,7 +12,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import Header from "@/components/header";
 
 export default function Home() {
   const { data: session, status } = useSession();
@@ -38,7 +38,6 @@ export default function Home() {
       <Header />
 
       <main className="container mx-auto px-4 py-20">
-        {/* Hero Section */}
         <div className="mx-auto max-w-3xl text-center">
           <h1 className="text-5xl font-bold tracking-tight">
             AI로 음성을
@@ -60,7 +59,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Features */}
         <div className="mx-auto mt-24 grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3">
           <Card>
             <CardHeader>
@@ -115,7 +113,6 @@ export default function Home() {
         </div>
       </main>
 
-      {/* Footer */}
       <footer className="border-t py-8">
         <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
           Built with Claude Code · ESTsoft Perso AI DevRel

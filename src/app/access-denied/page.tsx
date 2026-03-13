@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import Header from "@/components/header";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -8,8 +10,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import Header from "@/components/header";
-import Link from "next/link";
 
 export default function AccessDeniedPage() {
   return (

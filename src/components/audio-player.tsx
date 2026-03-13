@@ -42,7 +42,7 @@ export default function AudioPlayer({
   const audioSrc = `data:${contentType};base64,${audioBase64}`;
 
   const handlePlayPause = () => {
-    if (!audioRef.current) return;
+    if (!audioRef.current) {return;}
     if (isPlaying) {
       audioRef.current.pause();
     } else {
@@ -70,7 +70,6 @@ export default function AudioPlayer({
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
-        {/* Audio Player */}
         <div className="space-y-3">
           <audio
             ref={audioRef}
@@ -91,7 +90,6 @@ export default function AudioPlayer({
 
         <Separator />
 
-        {/* Texts */}
         <div className="space-y-3">
           <div>
             <p className="text-xs font-medium text-muted-foreground mb-1">

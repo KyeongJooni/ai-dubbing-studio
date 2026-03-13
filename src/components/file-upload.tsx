@@ -1,9 +1,9 @@
 "use client";
 
 import { useCallback, useState } from "react";
+import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
 
 interface FileUploadProps {
   onFileSelect: (file: File) => void;
@@ -22,7 +22,7 @@ const ACCEPTED_TYPES = [
   "video/ogg",
 ];
 
-const MAX_FILE_SIZE = 25 * 1024 * 1024; // 25MB
+const MAX_FILE_SIZE = 25 * 1024 * 1024;
 
 export default function FileUpload({
   onFileSelect,

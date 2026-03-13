@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import { toast } from "sonner";
-import Header from "@/components/header";
-import FileUpload from "@/components/file-upload";
-import LanguageSelect from "@/components/language-select";
-import DubbingProgress, { type DubbingStep } from "@/components/dubbing-progress";
 import AudioPlayer from "@/components/audio-player";
+import DubbingProgress, { type DubbingStep } from "@/components/dubbing-progress";
+import FileUpload from "@/components/file-upload";
+import Header from "@/components/header";
+import LanguageSelect from "@/components/language-select";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -53,7 +53,6 @@ export default function DashboardPage() {
       }
 
       setStep("translating");
-      // 서버에서 전체 파이프라인을 처리하므로 여기서는 UI 상태만 업데이트
       await new Promise((r) => setTimeout(r, 500));
 
       setStep("synthesizing");
@@ -102,13 +101,11 @@ export default function DashboardPage() {
         </div>
 
         <div className="space-y-6">
-          {/* Step 1: File Upload */}
           <FileUpload
             onFileSelect={setFile}
             disabled={step !== "idle" && step !== "complete" && step !== "error"}
           />
 
-          {/* Step 2: Language Selection */}
           <Card>
             <CardHeader>
               <CardTitle className="text-base">언어 설정</CardTitle>
@@ -124,7 +121,6 @@ export default function DashboardPage() {
             </CardContent>
           </Card>
 
-          {/* Action Buttons */}
           <div className="flex gap-3">
             <Button
               size="lg"
@@ -145,10 +141,8 @@ export default function DashboardPage() {
             )}
           </div>
 
-          {/* Progress */}
           <DubbingProgress step={step} error={error} />
 
-          {/* Result */}
           {result && (
             <AudioPlayer
               audioBase64={result.audioBase64}

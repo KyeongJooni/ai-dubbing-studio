@@ -1,5 +1,5 @@
-import { drizzle } from "drizzle-orm/libsql";
 import { createClient } from "@libsql/client";
+import { drizzle } from "drizzle-orm/libsql";
 import * as schema from "./schema";
 
 function createDb() {
@@ -23,7 +23,6 @@ export function getDb() {
   return _db;
 }
 
-// Lazy-initialized db for convenience
 export const db = new Proxy({} as ReturnType<typeof createDb>, {
   get(_target, prop, receiver) {
     const instance = getDb();

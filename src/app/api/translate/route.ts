@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
-import { auth } from "@/lib/auth";
 import translate from "google-translate-api-x";
+import { type NextRequest, NextResponse } from "next/server";
+import { auth } from "@/lib/auth";
 
 const SUPPORTED_LANGUAGES = ["ko", "en", "ja", "zh-CN", "es"] as const;
 

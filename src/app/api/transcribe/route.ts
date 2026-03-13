@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 
 export async function POST(req: NextRequest) {
@@ -15,7 +15,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "No file provided" }, { status: 400 });
     }
 
-    // ElevenLabs Speech-to-Text API
     const elevenLabsForm = new FormData();
     elevenLabsForm.append("audio", file);
     elevenLabsForm.append("model_id", "scribe_v1");

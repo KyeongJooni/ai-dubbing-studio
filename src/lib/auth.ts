@@ -1,8 +1,8 @@
+import { eq } from "drizzle-orm";
 import NextAuth from "next-auth";
 import Google from "next-auth/providers/google";
 import { db } from "@/db";
 import { allowedEmails } from "@/db/schema";
-import { eq } from "drizzle-orm";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -13,7 +13,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   ],
   callbacks: {
     async signIn({ user }) {
-      if (!user.email) return false;
+      if (!user.email) {return false;}
 
       const allowed = await db
         .select()

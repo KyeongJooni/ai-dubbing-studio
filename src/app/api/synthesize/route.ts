@@ -1,13 +1,12 @@
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 
-// ElevenLabs 다국어 음성 ID 매핑
 const VOICE_MAP: Record<string, string> = {
-  ko: "jBpfAFnaylXS5xSIHfVj", // Korean voice
-  en: "21m00Tcm4TlvDq8ikWAM", // Rachel - English
-  ja: "jBpfAFnaylXS5xSIHfVj", // Japanese voice
-  "zh-CN": "jBpfAFnaylXS5xSIHfVj", // Chinese voice
-  es: "jBpfAFnaylXS5xSIHfVj", // Spanish voice
+  ko: "jBpfAFnaylXS5xSIHfVj",
+  en: "21m00Tcm4TlvDq8ikWAM",
+  ja: "jBpfAFnaylXS5xSIHfVj",
+  "zh-CN": "jBpfAFnaylXS5xSIHfVj",
+  es: "jBpfAFnaylXS5xSIHfVj",
 };
 
 export async function POST(req: NextRequest) {

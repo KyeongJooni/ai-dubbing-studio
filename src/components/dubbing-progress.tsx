@@ -1,7 +1,7 @@
 "use client";
 
-import { Progress } from "@/components/ui/progress";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
 
 export type DubbingStep =
   | "idle"
@@ -40,7 +40,7 @@ export default function DubbingProgress({
 }: DubbingProgressProps) {
   const current = STEPS[step];
 
-  if (step === "idle") return null;
+  if (step === "idle") {return null;}
 
   return (
     <Card>
