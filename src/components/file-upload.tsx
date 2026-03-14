@@ -87,11 +87,14 @@ export default function FileUpload({
     <Card
       className={`transition-colors ${
         dragActive ? "border-primary bg-primary/5" : ""
-      } ${disabled ? "opacity-50 pointer-events-none" : ""}`}
+      } ${disabled ? "cursor-not-allowed opacity-50" : ""}`}
     >
       <CardContent className="p-6">
         <div
-          className="flex flex-col items-center justify-center gap-4 rounded-lg border-2 border-dashed p-8 text-center cursor-pointer hover:border-primary/50 transition-colors"
+          role="button"
+          tabIndex={0}
+          aria-label="오디오 또는 비디오 파일 업로드"
+          className="flex cursor-pointer flex-col items-center justify-center gap-4 rounded-lg border-2 border-dashed p-8 text-center transition-colors hover:border-primary/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
           onDragOver={(e) => {
             e.preventDefault();
             setDragActive(true);
@@ -101,6 +104,12 @@ export default function FileUpload({
           onClick={() =>
             document.getElementById("file-upload-input")?.click()
           }
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              document.getElementById("file-upload-input")?.click();
+            }
+          }}
         >
           <div className="text-4xl">📁</div>
           <div>
