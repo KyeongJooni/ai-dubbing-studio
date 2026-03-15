@@ -8,20 +8,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { LANGUAGES } from "@/lib/constants";
 
 interface LanguageSelectProps {
   value: string;
   onChange: (value: string | null) => void;
   disabled?: boolean;
 }
-
-const LANGUAGES = [
-  { code: "ko", label: "한국어", flag: "🇰🇷" },
-  { code: "en", label: "English", flag: "🇺🇸" },
-  { code: "ja", label: "日本語", flag: "🇯🇵" },
-  { code: "zh-CN", label: "中文", flag: "🇨🇳" },
-  { code: "es", label: "Español", flag: "🇪🇸" },
-];
 
 export default function LanguageSelect({
   value,
