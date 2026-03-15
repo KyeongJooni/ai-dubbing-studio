@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -16,10 +17,10 @@ export default function Header() {
   return (
     <header className="border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <div className="flex items-center gap-2">
-          <span className="text-2xl">🎙️</span>
-          <h1 className="text-xl font-bold">AI Dubbing Studio</h1>
-        </div>
+        <Link href="/" className="flex items-center gap-2 transition-opacity hover:opacity-80">
+          <span className="text-2xl" aria-hidden="true">🎙️</span>
+          <span className="text-xl font-bold">AI Dubbing Studio</span>
+        </Link>
 
         <div className="flex items-center gap-4">
           {session?.user ? (
