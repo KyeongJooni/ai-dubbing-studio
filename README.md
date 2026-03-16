@@ -151,6 +151,10 @@ ai-dubbing-studio/
 │   ├── examples/                # 코드 패턴 예제
 │   │   ├── api-route-pattern.ts # API Route 표준 패턴
 │   │   └── component-pattern.tsx# 컴포넌트 표준 패턴
+│   ├── skills/                  # 커스텀 슬래시 커맨드
+│   │   ├── commit-kr/           # /commit-kr 한글 커밋
+│   │   ├── check-deploy/        # /check-deploy 빌드 확인
+│   │   └── lint-fix/            # /lint-fix 코드 정리
 │   └── settings.local.json      # Agent Teams 활성화 설정
 ├── src/
 │   ├── app/                     # Next.js App Router 페이지
@@ -278,6 +282,7 @@ NextAuth.js의 Google OAuth 인증을 처리합니다.
 ├── decisions/       # 📋 아키텍처 의사결정 기록 (ADR)
 ├── tasks/           # ✅ 작업 체크리스트
 ├── examples/        # 💡 코드 패턴 예제
+├── skills/          # 🎯 커스텀 슬래시 커맨드
 └── settings.local.json  # ⚙️ Agent Teams 설정
 ```
 
@@ -315,6 +320,14 @@ MVP 구현을 Phase별로 체계적으로 나누어 관리합니다. Claude Code
 
 - `api-route-pattern.ts` — 인증 체크 → 요청 파싱 → 유효성 검사 → 비즈니스 로직 → 응답
 - `component-pattern.tsx` — 클라이언트 컴포넌트의 Props 정의, 상태 관리, 에러 처리 패턴
+
+#### 6. `skills/` — 커스텀 슬래시 커맨드
+
+`.claude/skills/` 폴더에 `SKILL.md` 파일을 만들면 슬래시 커맨드로 호출할 수 있는 커스텀 스킬이 됩니다. 반복되는 작업 흐름을 한 줄 명령어로 실행할 수 있습니다.
+
+- `/commit-kr` — 변경사항을 분석해서 Udacity 스타일 한글 커밋 메시지를 자동 생성. `--push` 옵션으로 푸시까지 한 번에 처리
+- `/check-deploy` — `pnpm build`로 로컬 빌드 확인 후 에러가 있으면 원인 분석 및 수정
+- `/lint-fix` — ESLint + Prettier 자동 수정. import 정렬, 미사용 import 제거, type import 통일
 
 ### 🤝 Agent Teams 활용
 
