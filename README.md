@@ -369,6 +369,4 @@ MVP 구현을 Phase별로 체계적으로 나누어 관리합니다. Claude Code
 
 **Built with ❤️ and [Claude Code](https://claude.ai/claude-code)**
 
-ESTsoft Perso AI DevRel 인턴 채용 과제
-
 </div>
