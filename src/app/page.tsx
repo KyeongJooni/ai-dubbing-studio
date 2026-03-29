@@ -116,7 +116,7 @@ export default function Home() {
 
       <footer className="border-t py-8">
         <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
-          Built with Claude Code · ESTsoft Perso AI DevRel
+          Built with Claude Code
         </div>
       </footer>
     </div>
